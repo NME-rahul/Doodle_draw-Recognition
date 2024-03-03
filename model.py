@@ -1,4 +1,5 @@
 from tensorflow.keras import layers, models
+import tensorflow as tf
 
 def model_x():
   input_layer = layers.Input(shape=(9, ))
