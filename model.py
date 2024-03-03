@@ -1,9 +1,9 @@
 from tensorflow.keras import layers, models
-import tensorflow as tf
+from tensorflow import expand_dims
 
 def model_x():
   input_layer = layers.Input(shape=(9, ))
-  x = tf.expand_dims(input_layer, axis=1)
+  x = expand_dims(input_layer, axis=1)
   x = layers.Bidirectional(layers.LSTM(256, return_sequences = True))(x)
   skip_connection = x
   x = layers.Bidirectional(layers.LSTM(256, return_sequences = True))(x)
@@ -17,7 +17,7 @@ def model_x():
 
 def model_y():
   input_layer_y = layers.Input(shape=(9, ))
-  y = tf.expand_dims(input_layer_y, axis=1)
+  y = expand_dims(input_layer_y, axis=1)
   y = layers.Bidirectional(layers.LSTM(256, return_sequences = True))(y)
   skip_connection = y
   y = layers.Bidirectional(layers.LSTM(256, return_sequences = True))(y)
